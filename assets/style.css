@@ -40,6 +40,16 @@ div.level {
     margin-left: 5px;
 }
 
+#level-num, #score-num {
+    display: inline-block;
+    vertical-align : middle;
+}
+
+p.info-text {
+    vertical-align : middle;
+    display: inline-block;
+}
+
 div.game-board table {
     margin: 0 auto;
 }
