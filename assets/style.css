@@ -15,12 +15,27 @@ div.container {
     margin: 0 auto;
     text-align: center;
     max-width: 1500px;
+    font-size: 0px;
 }
 
 div.text-box {
     border: 5px solid #4169E1;
     background: #FFFFFF;
-    width: 680px;
-    padding: 0 10px 0 10px;
     display: inline-block;
+    font-size: 16px;
+}
+
+div.dialogue {
+    width: 710px;
+    margin-bottom: 10px;
+}
+
+div.score {
+    width: 345px;
+    margin-right: 5px;
+}
+
+div.level {
+    width: 345px;
+    margin-left: 5px;
 }
