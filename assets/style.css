@@ -39,3 +39,55 @@ div.level {
     width: 345px;
     margin-left: 5px;
 }
+
+div.game-board table {
+    margin: 0 auto;
+}
+
+button {
+    background-color: darkgreen;
+    font-size: 30px;
+    width: 100px;
+    height: 100px;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+div.point-total {
+    height: 45px;
+    margin-bottom: 5px;
+    width: 98px;
+}
+
+div.voltorb-total {
+    height: 45px;
+    margin-top: 5px;
+    width: 98px;
+}
+
+div.red {
+    background-color: #EB4034;
+    border: 1px solid black;
+}
+
+div.green {
+    background-color: #2CC94C;
+    border: 1px solid black;
+}
+
+div.yellow {
+    background-color: #d4d428;
+    border: 1px solid black;
+}
+
+div.blue {
+    background-color: #4acced;
+    border: 1px solid black;
+}
+
+div.purple {
+    background-color: #e878ff;
+    border: 1px solid black;
+}
