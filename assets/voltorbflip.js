@@ -8,7 +8,6 @@ var gameBoard = [];
 initBoard();
 
 function initBoard() {
-    level = 8;
     var tempBoard = []; // Temporary array to insert all the necessary values.
 
     const numVoltorbs = randomBetween(level + 3, level + 5); // Number of Voltorbs to include in the board.
