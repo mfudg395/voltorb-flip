@@ -40,9 +40,20 @@ function initBoard() {
         tempBoard.push(3);
     }
 
+    shuffle(tempBoard);
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
 function randomBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// Randomly shuffles an array using the modern Fisher-Yates algoritm.
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = randomBetween(0, i);
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }
