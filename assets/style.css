@@ -69,12 +69,19 @@ div.point-total {
     height: 40px;
     margin-bottom: 5px;
     width: 88px;
+    line-height: 40px;
 }
 
 div.voltorb-total {
     height: 40px;
     margin-top: 5px;
     width: 88px;
+    line-height: 40px;
+}
+
+div.point-total, div.voltorb-total {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 div.red {
