@@ -70,6 +70,7 @@ function split(tempBoard) {
 // Sets the total points and number of Voltorbs for each row and column, and updates the HTML for them.
 function initTotals() {
     initRowTotals();
+    initColumnTotals();
 }
 
 //TODO: See if you can find a way to update the HTML that's cleaner than switch-case.
@@ -97,6 +98,32 @@ function initRowTotals() {
                 document.getElementById("point-r5").innerHTML = pointTotal;
                 break;
         }
+    }   
+}
+
+//TODO: See if you can find a way to update the HTML that's cleaner than switch-case.
+function initColumnTotals() {
+    for (var i = 0; i < gameBoard[0].length; i++) {
+        var pointTotal = 0;
+        for (var j = 0; j < gameBoard.length; j++) {
+            pointTotal += gameBoard[j][i];
+        }
+        switch(i) {
+            case 0:
+                document.getElementById("point-c1").innerHTML = pointTotal;
+                break;
+            case 1:
+                document.getElementById("point-c2").innerHTML = pointTotal;
+                break;
+            case 2:
+                document.getElementById("point-c3").innerHTML = pointTotal;
+                break;
+            case 3:
+                document.getElementById("point-c4").innerHTML = pointTotal;
+                break;
+            case 4:
+                document.getElementById("point-c5").innerHTML = pointTotal;
+                break;
+        }
     }
-    
 }
