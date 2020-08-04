@@ -23,6 +23,23 @@ function initBoard() {
         numToInclude == 2 ? numTwos += 1 : numThrees += 1;
     }
 
+    var numOnes = (rows * cols) - numVoltorbs - numTwos - numThrees; // Number of ones to include is equal to the remaining space on the board.
+    for (var i = 0; i < numOnes; i++) {
+        tempBoard.push(1);
+    }
+
+    for (var i = 0; i < numVoltorbs; i++) {
+        tempBoard.push(0);
+    }
+
+    for (var i = 0; i < numTwos; i++) {
+        tempBoard.push(2);
+    }
+
+    for (var i = 0; i < numThrees; i++) {
+        tempBoard.push(3);
+    }
+
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
