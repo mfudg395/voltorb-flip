@@ -6,6 +6,8 @@ var level = parseInt(document.getElementById("level-num").textContent); // level
 var gameBoard = [];
 
 initBoard();
+console.log(gameBoard);
+initTotals();
 
 function initBoard() {
     var tempBoard = []; // Temporary array to insert all the necessary values.
@@ -63,4 +65,38 @@ function shuffle(array) {
 // to simulate the game.
 function split(tempBoard) {
     while (tempBoard.length) gameBoard.push(tempBoard.splice(0, 5));
+}
+
+// Sets the total points and number of Voltorbs for each row and column, and updates the HTML for them.
+function initTotals() {
+    initRowTotals();
+}
+
+//TODO: See if you can find a way to update the HTML that's cleaner than switch-case.
+function initRowTotals() {
+    for (var i = 0; i < gameBoard.length; i++) {
+        var row = gameBoard[i];
+        var pointTotal = 0;
+        for (var j = 0; j < row.length; j++) {
+            pointTotal += row[j];
+        }
+        switch(i) {
+            case 0:
+                document.getElementById("point-r1").innerHTML = pointTotal;
+                break;
+            case 1:
+                document.getElementById("point-r2").innerHTML = pointTotal;
+                break;
+            case 2:
+                document.getElementById("point-r3").innerHTML = pointTotal;
+                break;
+            case 3:
+                document.getElementById("point-r4").innerHTML = pointTotal;
+                break;
+            case 4:
+                document.getElementById("point-r5").innerHTML = pointTotal;
+                break;
+        }
+    }
+    
 }
