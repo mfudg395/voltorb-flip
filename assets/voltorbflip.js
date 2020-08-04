@@ -41,6 +41,7 @@ function initBoard() {
     }
 
     shuffle(tempBoard);
+    split(tempBoard);
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -56,4 +57,10 @@ function shuffle(array) {
         array[i] = array[j];
         array[j] = temp;
     }
+}
+
+// Splits the temporary board into the new 2D array gameBoard, which will be used
+// to simulate the game.
+function split(tempBoard) {
+    while (tempBoard.length) gameBoard.push(tempBoard.splice(0, 5));
 }
