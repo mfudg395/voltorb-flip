@@ -91,11 +91,15 @@ function initRowTotals() {
 
 function initColumnTotals() {
     var pointTotalCols = document.getElementsByClassName("point-total-col");
+    var voltorbTotalCols = document.getElementsByClassName("voltorb-total-col");
     for (var i = 0; i < gameBoard[0].length; i++) {
         var pointTotal = 0;
+        var voltorbTotal = 0;
         for (var j = 0; j < gameBoard.length; j++) {
             pointTotal += gameBoard[j][i];
+            if (gameBoard[j][i] == 0) voltorbTotal++;
         }
         pointTotalCols[i].innerHTML = pointTotal;
+        voltorbTotalCols[i].innerHTML = voltorbTotal;
     }
 }
