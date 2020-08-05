@@ -65,7 +65,7 @@ button:hover {
     background-color: darkgray;
 }
 
-div.point-total {
+div.point-total-row, div.point-total-col {
     height: 40px;
     margin-bottom: 5px;
     width: 88px;
@@ -79,7 +79,7 @@ div.voltorb-total {
     line-height: 40px;
 }
 
-div.point-total, div.voltorb-total {
+div.point-total-row, div.point-total-col, div.voltorb-total {
     font-size: 16px;
     font-weight: bold;
 }
