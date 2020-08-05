@@ -75,13 +75,17 @@ function initTotals() {
 
 function initRowTotals() {
     var pointTotalRows = document.getElementsByClassName("point-total-row");
+    var voltorbTotalRows = document.getElementsByClassName("voltorb-total-row");
     for (var i = 0; i < gameBoard.length; i++) {
         var row = gameBoard[i];
         var pointTotal = 0;
+        var voltorbTotal = 0;
         for (var j = 0; j < row.length; j++) {
             pointTotal += row[j];
+            if (row[j] == 0) voltorbTotal++;
         }
         pointTotalRows[i].innerHTML = pointTotal;
+        voltorbTotalRows[i].innerHTML = voltorbTotal;
     }
 }
 
