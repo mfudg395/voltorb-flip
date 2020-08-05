@@ -73,57 +73,25 @@ function initTotals() {
     initColumnTotals();
 }
 
-//TODO: See if you can find a way to update the HTML that's cleaner than switch-case.
 function initRowTotals() {
+    var pointTotalRows = document.getElementsByClassName("point-total-row");
     for (var i = 0; i < gameBoard.length; i++) {
         var row = gameBoard[i];
         var pointTotal = 0;
         for (var j = 0; j < row.length; j++) {
             pointTotal += row[j];
         }
-        switch(i) {
-            case 0:
-                document.getElementById("point-r1").innerHTML = pointTotal;
-                break;
-            case 1:
-                document.getElementById("point-r2").innerHTML = pointTotal;
-                break;
-            case 2:
-                document.getElementById("point-r3").innerHTML = pointTotal;
-                break;
-            case 3:
-                document.getElementById("point-r4").innerHTML = pointTotal;
-                break;
-            case 4:
-                document.getElementById("point-r5").innerHTML = pointTotal;
-                break;
-        }
-    }   
+        pointTotalRows[i].innerHTML = pointTotal;
+    }
 }
 
-//TODO: See if you can find a way to update the HTML that's cleaner than switch-case.
 function initColumnTotals() {
+    var pointTotalCols = document.getElementsByClassName("point-total-col");
     for (var i = 0; i < gameBoard[0].length; i++) {
         var pointTotal = 0;
         for (var j = 0; j < gameBoard.length; j++) {
             pointTotal += gameBoard[j][i];
         }
-        switch(i) {
-            case 0:
-                document.getElementById("point-c1").innerHTML = pointTotal;
-                break;
-            case 1:
-                document.getElementById("point-c2").innerHTML = pointTotal;
-                break;
-            case 2:
-                document.getElementById("point-c3").innerHTML = pointTotal;
-                break;
-            case 3:
-                document.getElementById("point-c4").innerHTML = pointTotal;
-                break;
-            case 4:
-                document.getElementById("point-c5").innerHTML = pointTotal;
-                break;
-        }
+        pointTotalCols[i].innerHTML = pointTotal;
     }
 }
