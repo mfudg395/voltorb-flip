@@ -72,14 +72,14 @@ div.point-total-row, div.point-total-col {
     line-height: 40px;
 }
 
-div.voltorb-total {
+div.voltorb-total-row, div.voltorb-total-col {
     height: 40px;
     margin-top: 5px;
     width: 88px;
     line-height: 40px;
 }
 
-div.point-total-row, div.point-total-col, div.voltorb-total {
+div.point-total-row, div.point-total-col, div.voltorb-total-row, div.voltorb-total-col {
     font-size: 16px;
     font-weight: bold;
 }
