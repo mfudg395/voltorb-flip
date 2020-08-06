@@ -3,7 +3,7 @@ const cols = 5;
 
 var score = parseInt(document.getElementById("score-num").textContent); // score starts at 0
 var gameBoard = [];
-var tiles = [];
+var tiles = split(Array.from(document.getElementsByClassName("tile")));
 
 initBoard(1); // level starts at 1
 console.log(gameBoard);
@@ -60,7 +60,7 @@ function initBoard(level) {
 
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
-    tiles = split(Array.from(document.getElementsByClassName("tile")));
+    resetTiles();
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -119,5 +119,15 @@ function initColumnTotals() {
         }
         pointTotalCols[i].innerHTML = pointTotal;
         voltorbTotalCols[i].innerHTML = voltorbTotal;
+    }
+}
+
+// Resets all tiles to display question marks instead of numbers.
+function resetTiles() {
+    for (var i = 0; i < tiles.length; i++) {
+        var row = tiles[i];
+        for (var j = 0; j < row.length; j++) {
+            tiles[i][j].innerHTML = "?";
+        }
     }
 }
