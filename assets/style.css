@@ -30,6 +30,10 @@ div.dialogue {
     margin-bottom: 10px;
 }
 
+#dialogue-text {
+    display: inline-block;
+}
+
 div.score {
     width: 345px;
     margin-right: 5px;
@@ -54,15 +58,20 @@ div.game-board table {
     margin: 0 auto;
 }
 
-button {
+button.tile {
     background-color: #66e344;
     font-size: 30px;
     width: 90px;
     height: 90px;
 }
 
-button:hover {
+button.tile:hover {
     background-color: #7bf05b;
+}
+
+#reset-button {
+    display: none;
+    margin-left: 10px;
 }
 
 div.point-total-row, div.point-total-col {
