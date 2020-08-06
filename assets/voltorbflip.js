@@ -3,16 +3,30 @@ const cols = 5;
 
 var score = parseInt(document.getElementById("score-num").textContent); // score starts at 0
 var gameBoard = [];
-var tiles;
+var tiles = [];
 
 initBoard(1); // level starts at 1
 console.log(gameBoard);
 console.log(tiles);
 initTotals();
 
+// Add an event listener to each button.
+tiles.forEach(element => {
+    var x = tiles.indexOf(element);
+    element.forEach(tile => {
+        var y = element.indexOf(tile);
+        tile.addEventListener("click", function() {
+            tileClicked(x, y);
+        });
+    });
+});
+
+function tileClicked(x, y) {
+    tiles[x][y].innerHTML = gameBoard[x][y];
+}
+
 function initBoard(level) {
     var tempBoard = []; // Temporary array to insert all the necessary values.
-    tiles = document.getElementsByClassName("tile");
 
     const numVoltorbs = randomBetween(level + 3, level + 5); // Number of Voltorbs to include in the board.
     var numTwos = 0; // Number of twos and threes to include on the board.
