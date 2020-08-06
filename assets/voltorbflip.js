@@ -2,15 +2,17 @@ const rows = 5;
 const cols = 5;
 
 var score = parseInt(document.getElementById("score-num").textContent); // score starts at 0
-var level = parseInt(document.getElementById("level-num").textContent); // level starts at 1
 var gameBoard = [];
+var tiles;
 
-initBoard();
+initBoard(1); // level starts at 1
 console.log(gameBoard);
+console.log(tiles);
 initTotals();
 
-function initBoard() {
+function initBoard(level) {
     var tempBoard = []; // Temporary array to insert all the necessary values.
+    tiles = document.getElementsByClassName("tile");
 
     const numVoltorbs = randomBetween(level + 3, level + 5); // Number of Voltorbs to include in the board.
     var numTwos = 0; // Number of twos and threes to include on the board.
@@ -43,7 +45,8 @@ function initBoard() {
     }
 
     shuffle(tempBoard);
-    split(tempBoard);
+    gameBoard = split(tempBoard);
+    tiles = split(Array.from(document.getElementsByClassName("tile")));
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -61,10 +64,11 @@ function shuffle(array) {
     }
 }
 
-// Splits the temporary board into the new 2D array gameBoard, which will be used
-// to simulate the game.
-function split(tempBoard) {
-    while (tempBoard.length) gameBoard.push(tempBoard.splice(0, 5));
+// Splits a given array into a new 2D array with inner arrays having a length of 5.
+function split(array) {
+    var newArray = [];
+    while (array.length) newArray.push(array.splice(0, 5));
+    return newArray;
 }
 
 // Sets the total points and number of Voltorbs for each row and column, and updates the HTML for them.
