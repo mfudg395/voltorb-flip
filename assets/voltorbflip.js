@@ -1,11 +1,12 @@
 const rows = 5;
 const cols = 5;
 
+var level = parseInt(document.getElementById("level-num").textContent);
 var score = parseInt(document.getElementById("score-num").textContent); // score starts at 0
 var gameBoard = [];
 var tiles = split(Array.from(document.getElementsByClassName("tile")));
 
-initBoard(1); // level starts at 1
+initBoard(level); // level starts at 1
 console.log(gameBoard);
 console.log(tiles);
 initTotals();
