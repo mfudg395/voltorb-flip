@@ -55,14 +55,14 @@ div.game-board table {
 }
 
 button {
-    background-color: darkgreen;
+    background-color: #66e344;
     font-size: 30px;
     width: 90px;
     height: 90px;
 }
 
 button:hover {
-    background-color: darkgray;
+    background-color: #7bf05b;
 }
 
 div.point-total-row, div.point-total-col {
