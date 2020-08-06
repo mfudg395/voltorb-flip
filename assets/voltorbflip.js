@@ -22,8 +22,18 @@ tiles.forEach(element => {
     });
 });
 
+// Event listener for Reset button to reset the game board.
+document.getElementById("reset-button").addEventListener("click", resetBoard);
+
 function tileClicked(x, y) {
-    tiles[x][y].innerHTML = gameBoard[x][y];
+    var value = gameBoard[x][y];
+    tiles[x][y].innerHTML = value;
+
+    switch (value) {
+        case 0: tiles[x][y].style.backgroundColor = "#eb3434";
+                gameOver();
+                break;
+    }
 }
 
 function initBoard(level) {
@@ -61,7 +71,7 @@ function initBoard(level) {
 
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
-    resetTiles();
+    resetBoard();
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -123,12 +133,20 @@ function initColumnTotals() {
     }
 }
 
-// Resets all tiles to display question marks instead of numbers.
-function resetTiles() {
+// Resets all tiles to display question marks instead of numbers, and updates dialogue text.
+function resetBoard() {
     for (var i = 0; i < tiles.length; i++) {
         var row = tiles[i];
         for (var j = 0; j < row.length; j++) {
             tiles[i][j].innerHTML = "?";
+            tiles[i][j].style.backgroundColor = "#66e344"
         }
     }
+    document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
+    document.getElementById("reset-button").style.display = "none";
+}
+
+function gameOver() {
+    document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
+    document.getElementById("reset-button").style.display = "inline-block";
 }
