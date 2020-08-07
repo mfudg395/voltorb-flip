@@ -144,7 +144,9 @@ function resetBoard() {
     document.getElementById("reset-button").style.display = "none";
 }
 
+// Resets your level to 1 and provides the option to restart, while revealing the uncovered tiles.
 function gameOver() {
+    level = 1;
     document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
     document.getElementById("reset-button").style.display = "inline-block";
     revealBoard();
