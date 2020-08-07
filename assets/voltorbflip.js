@@ -70,7 +70,6 @@ function initBoard(level) {
 
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
-    resetBoard();
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
