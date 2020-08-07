@@ -28,7 +28,6 @@ document.getElementById("reset-button").addEventListener("click", resetBoard);
 function tileClicked(x, y) {
     var value = gameBoard[x][y];
     tiles[x][y].innerHTML = value;
-
     switch (value) {
         case 0: tiles[x][y].style.backgroundColor = "#eb3434";
                 gameOver();
@@ -139,7 +138,7 @@ function resetBoard() {
         var row = tiles[i];
         for (var j = 0; j < row.length; j++) {
             tiles[i][j].innerHTML = "?";
-            tiles[i][j].style.backgroundColor = "#66e344"
+            tiles[i][j].style.backgroundColor = "#66e344";
         }
     }
     document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
@@ -149,4 +148,16 @@ function resetBoard() {
 function gameOver() {
     document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
     document.getElementById("reset-button").style.display = "inline-block";
+    revealBoard();
+}
+
+// Reveals the number under all tiles on the game board.
+function revealBoard() {
+    for (var i = 0; i < tiles.length; i++) {
+        var row = tiles[i];
+        for (var j = 0; j < row.length; j++) {
+            tiles[i][j].innerHTML = gameBoard[i][j];
+            if (gameBoard[i][j] == 0) tiles[i][j].style.backgroundColor = "#eb3434";
+        }
+    }
 }
