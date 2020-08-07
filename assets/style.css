@@ -65,13 +65,13 @@ button.tile {
     height: 90px;
 }
 
-button.tile:hover {
-    background-color: #7bf05b;
-}
-
 #reset-button {
     display: none;
     margin-left: 10px;
+}
+
+button:hover {
+    background: #7bf05b !important;
 }
 
 div.point-total-row, div.point-total-col {
