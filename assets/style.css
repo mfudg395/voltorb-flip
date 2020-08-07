@@ -70,7 +70,7 @@ button.tile {
     margin-left: 10px;
 }
 
-button:hover {
+button.tile:hover {
     background: #7bf05b !important;
 }
 
