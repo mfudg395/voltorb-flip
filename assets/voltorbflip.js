@@ -9,7 +9,7 @@ var tiles = split(Array.from(document.getElementsByClassName("tile")));
 initBoard(level); // level starts at 1
 console.log(gameBoard);
 console.log(tiles);
-initTotals();
+
 
 // Add an event listener to each button.
 tiles.forEach(element => {
@@ -70,6 +70,7 @@ function initBoard(level) {
 
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
+    initTotals();
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -131,7 +132,7 @@ function initColumnTotals() {
     }
 }
 
-// Resets all tiles to display question marks instead of numbers, and updates dialogue text.
+// Resets all tiles to display question marks instead of numbers, and updates dialogue text. A new board at Level 1 is then initialized.
 function resetBoard() {
     for (var i = 0; i < tiles.length; i++) {
         var row = tiles[i];
@@ -142,6 +143,7 @@ function resetBoard() {
     }
     document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
     document.getElementById("reset-button").style.display = "none";
+    initBoard(level);
 }
 
 // Resets your level to 1 and provides the option to restart, while revealing the uncovered tiles.
