@@ -25,14 +25,22 @@ tiles.forEach(element => {
 // Event listener for Reset button to reset the game board.
 document.getElementById("reset-button").addEventListener("click", resetBoard);
 
+/**
+ * When a tile is clicked, two things need to happen:
+ * 1. The number underneath the tile is revealed.
+ * 2. The score either increases if the number was not a Voltorb (represented by a 0), or a Game Over occurs
+ *    if the number was a Voltorb.
+ */
 function tileClicked(x, y) {
     var value = gameBoard[x][y];
     tiles[x][y].innerHTML = value;
-    switch (value) {
-        case 0: tiles[x][y].style.backgroundColor = "#eb3434";
-                gameOver();
-                break;
-    }
+    if (value == 0) {
+        tiles[x][y].style.backgroundColor = "#eb3434";
+        gameOver();
+    } else {
+        score != 0 ? score *= value : score += value;
+        document.getElementById("score-num").innerHTML = score;
+    } 
 }
 
 function initBoard(level) {
@@ -143,12 +151,14 @@ function resetBoard() {
     }
     document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
     document.getElementById("reset-button").style.display = "none";
+    document.getElementById("score-num").innerHTML = score;
     initBoard(level);
 }
 
-// Resets your level to 1 and provides the option to restart, while revealing the uncovered tiles.
+// Resets your level to 1, score to 0, and provides the option to restart, while revealing the uncovered tiles.
 function gameOver() {
     level = 1;
+    score = 0;
     document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
     document.getElementById("reset-button").style.display = "inline-block";
     revealBoard();
