@@ -33,6 +33,10 @@ document.getElementById("reset-button").addEventListener("click", resetBoard);
  */
 function tileClicked(x, y) {
     var value = gameBoard[x][y];
+    if (tiles[x][y].innerHTML == value) { // If the user clicks a tile that's already uncovered, do nothing.
+        return;
+    }
+
     tiles[x][y].innerHTML = value;
     if (value == 0) {
         tiles[x][y].style.backgroundColor = "#eb3434";
