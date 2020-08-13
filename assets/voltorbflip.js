@@ -154,13 +154,7 @@ function initColumnTotals() {
 
 // Resets all tiles to display question marks instead of numbers, and updates dialogue text. A new board at Level 1 is then initialized.
 function resetBoard() {
-    for (var i = 0; i < tiles.length; i++) {
-        var row = tiles[i];
-        for (var j = 0; j < row.length; j++) {
-            tiles[i][j].innerHTML = "?";
-            tiles[i][j].style.backgroundColor = "#66e344";
-        }
-    }
+    refreshTiles();
     level = 1;
     document.getElementById("level-num").innerHTML = level;
     currentScore = 0;
@@ -174,13 +168,7 @@ function resetBoard() {
 }
 
 function advanceLevel() {
-    for (var i = 0; i < tiles.length; i++) {
-        var row = tiles[i];
-        for (var j = 0; j < row.length; j++) {
-            tiles[i][j].innerHTML = "?";
-            tiles[i][j].style.backgroundColor = "#66e344";
-        }
-    }
+    refreshTiles();
     if (level <= 7) level++;
     document.getElementById("level-num").innerHTML = level;
     totalScore += currentScore;
@@ -193,16 +181,26 @@ function advanceLevel() {
     initBoard(level);
 }
 
-// Advances the level by 1 (up to a max of Level 8), and provides the option to advance while revealing the uncovered tiles.
+// Resets all tiles to display question marks.
+function refreshTiles() {
+    for (var i = 0; i < tiles.length; i++) {
+        var row = tiles[i];
+        for (var j = 0; j < row.length; j++) {
+            tiles[i][j].innerHTML = "?";
+            tiles[i][j].style.backgroundColor = "#66e344";
+        }
+    }
+}
+
+// Reveals all the board tiles and displays the option to advance.
 function handleLevelUp() {
     document.getElementById("dialogue-text").innerHTML = "Level " + level + " cleared! Click here to advance: ";
     document.getElementById("level-up-button").style.display = "inline-block";
     revealBoard();
 }
 
-// Resets your level to 1, score to 0, and provides the option to restart, while revealing the uncovered tiles.
+// Reveals all board tiles and displays the option to restart.
 function handleGameOver() {
-
     document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
     document.getElementById("reset-button").style.display = "inline-block";
     revealBoard();
