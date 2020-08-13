@@ -165,6 +165,7 @@ function resetBoard() {
     initBoard(level);
 }
 
+// Advances the level by 1 (up to a max of Level 8), and provides the option to advance while revealing the uncovered tiles.
 function handleLevelUp() {
     if (level <= 7) level++;
     document.getElementById("dialogue-text").innerHTML = "Level " + level + " cleared! Click here to advance: ";
