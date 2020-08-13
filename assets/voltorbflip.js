@@ -2,14 +2,13 @@ const rows = 5;
 const cols = 5;
 
 var level = parseInt(document.getElementById("level-num").textContent);
-var score = parseInt(document.getElementById("current-score-num").textContent); // score starts at 0
+var levelScore; // The max score you can achieve on a given level. This is updated every time initBoard() runs.
+var currentScore = parseInt(document.getElementById("current-score-num").textContent) // The current score on a given level.
+var totalScore = parseInt(document.getElementById("total-score-num").textContent); // The total score throughout all levels so far.
 var gameBoard = [];
 var tiles = split(Array.from(document.getElementsByClassName("tile")));
-var winningScore;
 
 initBoard(level); // level starts at 1
-console.log(gameBoard);
-console.log(tiles);
 
 
 // Add an event listener to each button.
@@ -46,11 +45,11 @@ function tileClicked(x, y) {
         tiles[x][y].style.backgroundColor = "#eb3434";
         handleGameOver();
     } else {
-        score != 0 ? score *= value : score += value;
-        document.getElementById("score-num").innerHTML = score;
+        currentScore != 0 ? currentScore *= value : currentScore += value;
+        document.getElementById("current-score-num").innerHTML = currentScore;
     } 
 
-    if (score == winningScore) {
+    if (currentScore == levelScore) {
         handleLevelUp();
     }
 }
@@ -63,7 +62,7 @@ function initBoard(level) {
     var numThrees = 0; 
 
     const minScore = 12 * Math.pow(2, level); // The minimum possible score you can get on a level.
-    var levelScore = 1; // The actual score you can get on the current level.
+    levelScore = 1; // The actual score you can get on the current level.
 
     while (levelScore < minScore) {
         var numToInclude = randomBetween(2, 3);
@@ -90,8 +89,8 @@ function initBoard(level) {
 
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
-    winningScore = score + levelScore; // update the "winning" score; when the player reaches this number, the level ends
     initTotals();
+    console.log(gameBoard);
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -162,9 +161,15 @@ function resetBoard() {
             tiles[i][j].style.backgroundColor = "#66e344";
         }
     }
+    level = 1;
+    document.getElementById("level-num").innerHTML = level;
+    currentScore = 0;
+    document.getElementById("current-score-num").innerHTML = currentScore;
+    totalScore = 0;
+    document.getElementById("total-score-num").innerHTML = totalScore;
+
     document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
     document.getElementById("reset-button").style.display = "none";
-    document.getElementById("score-num").innerHTML = score;
     initBoard(level);
 }
 
@@ -176,15 +181,20 @@ function advanceLevel() {
             tiles[i][j].style.backgroundColor = "#66e344";
         }
     }
+    if (level <= 7) level++;
+    document.getElementById("level-num").innerHTML = level;
+    totalScore += currentScore;
+    document.getElementById("total-score-num").innerHTML = totalScore;
+    currentScore = 0;
+    document.getElementById("current-score-num").innerHTML = currentScore;
+
     document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
     document.getElementById("level-up-button").style.display = "none";
-    document.getElementById("level-num").innerHTML = level;
     initBoard(level);
 }
 
 // Advances the level by 1 (up to a max of Level 8), and provides the option to advance while revealing the uncovered tiles.
 function handleLevelUp() {
-    if (level <= 7) level++;
     document.getElementById("dialogue-text").innerHTML = "Level " + level + " cleared! Click here to advance: ";
     document.getElementById("level-up-button").style.display = "inline-block";
     revealBoard();
@@ -192,8 +202,7 @@ function handleLevelUp() {
 
 // Resets your level to 1, score to 0, and provides the option to restart, while revealing the uncovered tiles.
 function handleGameOver() {
-    level = 1;
-    score = 0;
+
     document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
     document.getElementById("reset-button").style.display = "inline-block";
     revealBoard();
