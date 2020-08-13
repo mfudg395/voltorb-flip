@@ -1,7 +1,7 @@
 # voltorb-flip
 A re-creation of Voltorb Flip, a Minesweeper-Picross style puzzle minigame.
 
-[**Click here to view and play a live version**](https://mfudg395.github.io/voltorb-flip/)
+[**Click here to view and play a live version.**](https://mfudg395.github.io/voltorb-flip/)
 
 ## Origin
 Voltorb Flip is a minigame available in certain releases of Pokemon HeartGold and Pokemon SoulSilver on the Nintendo DS. In the game,
@@ -27,3 +27,12 @@ A level is cleared when all 2s and 3s have been uncovered. Higher levels have mo
 Voltorbs. It's up to you to figure out which is which and achieve as high a score as possible.
 
 [A more detailed explanation on the game can be found on Bulbapedia, the Pokemon encyclopedia.](https://bulbapedia.bulbagarden.net/wiki/Voltorb_Flip)
+
+## A bit about this project
+I made this as a way of practicing JavaScript. I've been studying the language while in quarantine in preparation for my upcoming semester at
+university, where I'll be taking another web development course. Finding a fun project to work on seemed like a good way to learn, so I made this.
+
+Because of that, it's *probably* not the most elegant piece of code ever written. At the time of writing this, I'm still a JS newbie - once I learn
+more, hopefully I'll come back and clean up some it. But for now, it works, and I hope it's fun to play.
+
+**PS. I did all the testing for this on Chrome. It seems to work on Firefox as well, but I can't be certain with other browsers - sorry! :(**
