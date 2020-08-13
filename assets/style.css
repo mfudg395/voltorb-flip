@@ -65,7 +65,7 @@ button.tile {
     height: 90px;
 }
 
-#reset-button {
+#reset-button, #level-up-button {
     display: none;
     margin-left: 10px;
 }
