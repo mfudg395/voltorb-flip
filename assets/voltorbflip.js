@@ -2,7 +2,7 @@ const rows = 5;
 const cols = 5;
 
 var level = parseInt(document.getElementById("level-num").textContent);
-var score = parseInt(document.getElementById("score-num").textContent); // score starts at 0
+var score = parseInt(document.getElementById("current-score-num").textContent); // score starts at 0
 var gameBoard = [];
 var tiles = split(Array.from(document.getElementsByClassName("tile")));
 var winningScore;
@@ -25,6 +25,9 @@ tiles.forEach(element => {
 
 // Event listener for Reset button to reset the game board.
 document.getElementById("reset-button").addEventListener("click", resetBoard);
+
+// Event listener for the Next Level button to advance the game board.
+document.getElementById("level-up-button").addEventListener("click", advanceLevel);
 
 /**
  * When a tile is clicked, two things need to happen:
@@ -162,6 +165,20 @@ function resetBoard() {
     document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
     document.getElementById("reset-button").style.display = "none";
     document.getElementById("score-num").innerHTML = score;
+    initBoard(level);
+}
+
+function advanceLevel() {
+    for (var i = 0; i < tiles.length; i++) {
+        var row = tiles[i];
+        for (var j = 0; j < row.length; j++) {
+            tiles[i][j].innerHTML = "?";
+            tiles[i][j].style.backgroundColor = "#66e344";
+        }
+    }
+    document.getElementById("dialogue-text").innerHTML = "Let's play Voltorb Flip! Please click a square to get started.";
+    document.getElementById("level-up-button").style.display = "none";
+    document.getElementById("level-num").innerHTML = level;
     initBoard(level);
 }
 
