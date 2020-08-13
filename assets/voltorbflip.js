@@ -10,7 +10,6 @@ var tiles = split(Array.from(document.getElementsByClassName("tile")));
 
 initBoard(level); // level starts at 1
 
-
 // Add an event listener to each button.
 tiles.forEach(element => {
     var x = tiles.indexOf(element);
@@ -54,6 +53,7 @@ function tileClicked(x, y) {
     }
 }
 
+// Creates a game board based on the game's current level.
 function initBoard(level) {
     var tempBoard = []; // Temporary array to insert all the necessary values.
 
@@ -90,7 +90,6 @@ function initBoard(level) {
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
     initTotals();
-    console.log(gameBoard);
 }
 
 // Returns a random number between the specified minimum and maximum, inclusive.
@@ -167,6 +166,7 @@ function resetBoard() {
     initBoard(level);
 }
 
+// Increases the level by 1 (up to a max of 8), updates the total score throughout the game, then initializes a new board at the new level.
 function advanceLevel() {
     refreshTiles();
     if (level <= 7) level++;
