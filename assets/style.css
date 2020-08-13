@@ -26,7 +26,7 @@ div.text-box {
 }
 
 div.dialogue {
-    width: 710px;
+    width: 750px;
     margin-bottom: 10px;
 }
 
@@ -35,16 +35,16 @@ div.dialogue {
 }
 
 div.score {
-    width: 345px;
+    width: 365px;
     margin-right: 5px;
 }
 
 div.level {
-    width: 345px;
+    width: 365px;
     margin-left: 5px;
 }
 
-#level-num, #score-num {
+#level-num, #current-score-num, #total-score-num {
     display: inline-block;
     vertical-align : middle;
 }
