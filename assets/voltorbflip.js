@@ -40,7 +40,7 @@ function tileClicked(x, y) {
     tiles[x][y].innerHTML = value;
     if (value == 0) {
         tiles[x][y].style.backgroundColor = "#eb3434";
-        gameOver();
+        handleGameOver();
     } else {
         score != 0 ? score *= value : score += value;
         document.getElementById("score-num").innerHTML = score;
@@ -160,7 +160,7 @@ function resetBoard() {
 }
 
 // Resets your level to 1, score to 0, and provides the option to restart, while revealing the uncovered tiles.
-function gameOver() {
+function handleGameOver() {
     level = 1;
     score = 0;
     document.getElementById("dialogue-text").innerHTML = "Too bad! Click here to restart: ";
