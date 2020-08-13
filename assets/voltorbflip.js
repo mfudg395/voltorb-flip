@@ -5,6 +5,7 @@ var level = parseInt(document.getElementById("level-num").textContent);
 var score = parseInt(document.getElementById("score-num").textContent); // score starts at 0
 var gameBoard = [];
 var tiles = split(Array.from(document.getElementsByClassName("tile")));
+var winningScore;
 
 initBoard(level); // level starts at 1
 console.log(gameBoard);
@@ -45,6 +46,10 @@ function tileClicked(x, y) {
         score != 0 ? score *= value : score += value;
         document.getElementById("score-num").innerHTML = score;
     } 
+
+    if (score == winningScore) {
+        handleLevelUp();
+    }
 }
 
 function initBoard(level) {
@@ -82,6 +87,7 @@ function initBoard(level) {
 
     shuffle(tempBoard);
     gameBoard = split(tempBoard);
+    winningScore = score + levelScore; // update the "winning" score; when the player reaches this number, the level ends
     initTotals();
 }
 
@@ -157,6 +163,13 @@ function resetBoard() {
     document.getElementById("reset-button").style.display = "none";
     document.getElementById("score-num").innerHTML = score;
     initBoard(level);
+}
+
+function handleLevelUp() {
+    if (level <= 7) level++;
+    document.getElementById("dialogue-text").innerHTML = "Level " + level + " cleared! Click here to advance: ";
+    document.getElementById("level-up-button").style.display = "inline-block";
+    revealBoard();
 }
 
 // Resets your level to 1, score to 0, and provides the option to restart, while revealing the uncovered tiles.
