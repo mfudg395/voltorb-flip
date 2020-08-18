@@ -117,3 +117,9 @@ div.purple {
     background-color: #e878ff;
     border: 1px solid black;
 }
+
+#github-link {
+    font-size: 16px;
+    margin-top: 35px;
+    display: inline-block;
+}
