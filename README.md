@@ -21,7 +21,8 @@ for instance, if your current score is 4 and you uncover a 3, your current score
 
 In order to deduce which tiles are numbers and which ones are Voltorbs, you need to use the colored boxes at the end of each row and column.
 The number in the **above** rectangle is equal to the sum of all numbers in that given row or column. The number in the **below** rectangle
-is equal to the sum of all Voltorbs in that row or column. Every row and column displays this information.
+is equal to the sum of all Voltorbs in that row or column. Every row and column displays this information. You can use the *Mark Tiles* checkbox
+to mark tiles with an "x" on-click instead of uncovering them, allowing you to track which tiles you don't want to click.
 
 A level is cleared when all 2s and 3s have been uncovered. Higher levels have more 2s and 3s to earn you more points, but they also have more
 Voltorbs. It's up to you to figure out which is which and achieve as high a score as possible.
