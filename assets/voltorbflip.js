@@ -39,6 +39,11 @@ function tileClicked(x, y) {
         return;
     }
 
+    if (document.getElementById("marker").checked == true) {
+        tiles[x][y].innerHTML == "&nbsp;" ? tiles[x][y].innerHTML = "x" : tiles[x][y].innerHTML = "&nbsp;";
+        return;
+    }
+
     tiles[x][y].innerHTML = value;
     if (value == 0) {
         tiles[x][y].style.backgroundColor = "#eb3434";
