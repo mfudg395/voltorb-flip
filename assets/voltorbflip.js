@@ -186,7 +186,7 @@ function refreshTiles() {
     for (var i = 0; i < tiles.length; i++) {
         var row = tiles[i];
         for (var j = 0; j < row.length; j++) {
-            tiles[i][j].innerHTML = "?";
+            tiles[i][j].innerHTML = "&nbsp;";
             tiles[i][j].style.backgroundColor = "#66e344";
         }
     }
