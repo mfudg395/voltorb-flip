@@ -28,10 +28,12 @@ document.getElementById("reset-button").addEventListener("click", resetBoard);
 document.getElementById("level-up-button").addEventListener("click", advanceLevel);
 
 /**
- * When a tile is clicked, two things need to happen:
- * 1. The number underneath the tile is revealed.
- * 2. The score either increases if the number was not a Voltorb (represented by a 0), or a Game Over occurs
- *    if the number was a Voltorb.
+ * When a tile is clicked, a few things need to happen:
+ * 1. There needs to be a check for the player clicking an already-uncovered tile. If they do this, nothing should happen.
+ * 2. There needs to be a check for the "mark tiles" box being checked. If it is, tiles should be "marked" instead of uncovered.
+ * 3. If none of those happens, the score either increases if the number was not a Voltorb (represented by a 0), or a Game Over 
+ *    occurs if the number was a Voltorb.
+ * 4. If the uncovered tile was the last one needed to level up, then that needs to be handled by a different function.
  */
 function tileClicked(x, y) {
     var value = gameBoard[x][y];
@@ -92,8 +94,8 @@ function initBoard(level) {
         tempBoard.push(3);
     }
 
-    shuffle(tempBoard);
-    gameBoard = split(tempBoard);
+    shuffle(tempBoard); // Shuffle the 1D array.
+    gameBoard = split(tempBoard); // Split the 1D array into a 5x5 2D array, and make that the gameboard.
     initTotals();
 }
 
